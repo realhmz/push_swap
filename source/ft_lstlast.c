@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	*ft_lstlast(t_stack **lst)
 {
 	t_stack *head;
 
-	head = lst;
+	head = *lst;
 	while (head)
 	{
 		if (head->next)

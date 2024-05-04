@@ -15,5 +15,13 @@ typedef struct s_stack
 }   t_stack;
 
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int content);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	swap(t_stack *a);
+int	ft_lstsize(t_stack *lst);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+void    pa(t_stack **a, t_stack **b);
+t_stack	*ft_lstlast(t_stack **lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	swap_last(t_stack *a);
