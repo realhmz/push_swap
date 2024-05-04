@@ -25,3 +25,7 @@ void    pa(t_stack **a, t_stack **b);
 t_stack	*ft_lstlast(t_stack **lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	swap_last(t_stack *a);
+int	ft_atoi(const char *nptr);
+char	**ft_split(char const *s, char c);
+char **ft_strdjoin(char **str, char**s);
+int double_len(char **str);
