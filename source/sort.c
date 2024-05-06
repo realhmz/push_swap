@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-int ft_max_size(t_stack *stack)
-{
-    int len;
+// int ft_max_size(t_stack *stack)
+// {
+//     int len;
 
-    len = 0;
-    while (stack)
-    {
-        if (len < stack->final_rank)
-            len = stack->final_rank;
-        stack = stack->next;
-    }
-}
+//     len = 0;
+//     while (stack)
+//     {
+//         if (len < stack->final_rank)
+//             len = stack->final_rank;
+//         stack = stack->next;
+//     }
+// }
 
 int is_sorted(t_stack **stack)
 {
@@ -25,23 +25,22 @@ int is_sorted(t_stack **stack)
     }
     return (0);   
 }
-//For 3 numbers, I first get the highest final rank in the stack, if the first element of the stack has the highest final rank
-// , I rotate (ra) the stack, else if the second element of the stack has the highest final rank, I reverse rotate (rra) the 
-//stack, then I just check if 
-// I need a quick swap sa if the final rank of the first element is bigger than the final rank of the second element.
 
 int is_highest(t_stack *head, t_stack **stack_a)
 {
     int i;
     t_stack *tmp;
-    tmp = (*stack_a);
-    while ((*stack_a))
+    t_stack *tmp1;
+
+    tmp1 = *stack_a;
+    tmp = head;
+    while (tmp1)
     {
-        if (head->final_rank < (*stack_a)->final_rank)
+        if (tmp->final_rank < tmp1->final_rank)
             return 0;
-        (*stack_a) = (*stack_a)->next;
+        tmp1 = tmp1->next;
     }
-    (*stack_a) = tmp;
+    // (*stack_a) = tmp;
     return 1;
     
 }
@@ -49,33 +48,43 @@ int is_highest(t_stack *head, t_stack **stack_a)
 void    sort_3(t_stack **stack)
 {
     int size = ft_lstsize(*stack);
-    if (size == 2 && (*stack)->final_rank > (*stack)->next->final_rank)
+    if (size == 2 && is_highest(*stack,stack) )
         sa(stack);
     else
     {
+        if (!is_sorted(stack))
+            return;
         if (is_highest(*stack,stack))
             ra(stack);
         else if (is_highest((*stack)->next,stack))
         {
             rra(stack);
-            if (is_sorted(stack))
-                sa(stack);
+            
         }
+        if (is_sorted(stack))
+                sa(stack);
     }
 }
 
 void    push_small_half(t_stack **stack_a, t_stack **stack_b)
 {
     int     size;
+    int     size_b;
     int     i = 0;
+    t_stack *tmp;
 
+    tmp = *stack_a;
+    size_b = ft_lstsize(*stack_b);
     size = ft_lstsize(*stack_a);
     while (i < size)
     {
-        if ((*stack_a)->final_rank <= (size / 2))
+        if (tmp->index < size_b)
+        {
             pb(stack_a,stack_b);
-        else
-            ra(stack_a);        
+            rb(stack_b);
+        }
+        else if (tmp->index <= size_b + tmp->range)
+            pb(stack_a, stack_b);
         i++;
     }
 }
@@ -96,10 +105,7 @@ void    push_next(t_stack **stack_a, t_stack **stack_b)
 }
 void    sort_more(t_stack **stack_a, t_stack **stack_b)
 {
-    push_small_half(stack_a, stack_b);
-    push_next(stack_a, stack_b);
-    sort_3(stack_a);
-    printf("\nA size %d\n",ft_lstsize(*stack_a));
+    
 }
 
 // void    half_push_b(t_stack *stack)

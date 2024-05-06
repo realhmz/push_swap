@@ -5,13 +5,11 @@
 
 typedef struct s_stack
 {
-    int            content;
-    int            pos;
-    int            target_pos;
-    int            final_rank;
-    int            cost_stack_a;
-    int            cost_stack_b;
-    struct s_stack *next;
+	int            content;
+	int				index;
+	int             range;
+	int            final_rank;
+	struct s_stack *next;
 }   t_stack;
 
 
@@ -44,3 +42,6 @@ size_t	ft_atoi(const char *nptr);
 void    set_final_mark(t_stack **stack);
 void    sort_3(t_stack **stack);
 void    sort_more(t_stack **stack_a, t_stack **stack_b);
+void    set_index(t_stack **stack);
+
+

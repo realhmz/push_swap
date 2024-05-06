@@ -21,23 +21,14 @@ void	swap(t_stack *a)
 	tmp = malloc(sizeof(t_stack));
 	tmp->content = a->content;
 	tmp->final_rank = a->final_rank;
-	tmp->pos = a->pos;
-	tmp->target_pos = a->target_pos;
-	tmp->cost_stack_a = a->cost_stack_a;
-	tmp->cost_stack_b = a->cost_stack_b;
+	tmp->index = a->index;
 	a->content = a->next->content;
 	a->final_rank = a->next->final_rank;
-	a->pos = a->pos;
-	a->target_pos = a->next->target_pos;
-	a->cost_stack_a = a->next->cost_stack_a;
-	a->cost_stack_b = a->next->cost_stack_b;
+	a->index = a->index;
 	a->next->content = tmp->content;
 	a->next->content = tmp->content;
 	a->next->final_rank = tmp->final_rank;
-	a->next->pos = tmp->pos;
-	a->next->target_pos = tmp->target_pos;
-	a->next->cost_stack_a = tmp->cost_stack_a;
-	a->next->cost_stack_b = tmp->cost_stack_b;
+	a->next->index = tmp->index;
 	free(tmp);
 }
 
@@ -48,23 +39,13 @@ void	swap_last(t_stack *a)
 	tmp = malloc(sizeof(t_stack));
 	tmp->content = a->content;
 	tmp->final_rank = a->final_rank;
-	tmp->pos = a->pos;
-	tmp->target_pos = a->target_pos;
-	tmp->cost_stack_a = a->cost_stack_a;
-	tmp->cost_stack_b = a->cost_stack_b;
+	tmp->index = a->index;
 	a->content = ft_lstlast(&a)->content;
 	a->final_rank = ft_lstlast(&a)->final_rank;
-	a->pos = a->pos;
-	a->target_pos = ft_lstlast(&a)->target_pos;
-	a->cost_stack_a = ft_lstlast(&a)->cost_stack_a;
-	a->cost_stack_b = ft_lstlast(&a)->cost_stack_b;
-	
+	a->index = a->index;	
 	ft_lstlast(&a)->content = tmp->content;
 	ft_lstlast(&a)->final_rank = tmp->final_rank;
-	ft_lstlast(&a)->pos = tmp->pos;
-	ft_lstlast(&a)->target_pos = tmp->target_pos;
-	ft_lstlast(&a)->cost_stack_a = tmp->cost_stack_a;
-	ft_lstlast(&a)->cost_stack_b = tmp->cost_stack_b;
+	ft_lstlast(&a)->index = tmp->index;
 	ft_lstlast(&a)->next = NULL;
 	free(tmp);
 }
