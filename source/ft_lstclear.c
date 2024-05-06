@@ -12,14 +12,13 @@
 
 #include "push_swap.h"
 
-void	ft_lstclear(t_stack **lst, void (*del)(void *))
+void	ft_lstclear(t_stack **lst)
 {
 	t_stack	*head;
 
 	head = *lst;
 	while (head)
 	{
-		del(head->content);
 		head = (*lst)->next;
 		free(head);
 		 *lst = head;

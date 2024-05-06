@@ -11,18 +11,34 @@ void    ft_swap(int a, int b)
 int check_double(int *nbr, int len)
 {
     int i = 1;
+    int j;
+    int x = 0;
+    int d = 0;
     while (i < len)
     {
-        if (nbr[i] > nbr[i - 1])
+        j = nbr[i];
+        d = 0;
+        while (d < len)
         {
-            ft_swap(nbr[i], nbr[i - 1]);
-            i = 1;
+            if (j == nbr[d])
+                x++;
+            if (x > 1)
+                return (1);
+            d++;
         }
-        if (nbr[i] == nbr[i - 1])
-            return (1);
+        x = 0;
         i++;
     }
     return 0;
+}
+int nbr_len(int l)
+{
+    static int i;
+    if (l == 0)
+        return i;
+    else
+        i = l;
+    return i;
 }
 int *str_to_nbr(char **str)
 {
@@ -30,15 +46,15 @@ int *str_to_nbr(char **str)
     int j;
     int *nbr;
     i = double_len(str);
-    printf("%d",i);
     j = 0;
     nbr = (int *)malloc(sizeof(int ) * i);
     while (j < i)
     {
-        printf("time\n");
+        // printf("time\n");
         nbr[j] = ft_atoi(str[j]);
         j++;
     }
+    nbr_len(j);
     return nbr;
 }
 
@@ -53,36 +69,57 @@ static char **get_str(char **s1, char *s2)
 
     tmp1 =  ft_split(s2,' ');
     str = ft_strdjoin(tmp,tmp1);
-    free(tmp);
-    free(tmp1);
+    // free(tmp);
+    // free(tmp1);
     return str;
 }
 int main(int ac, char **av)
 {
     char **str;
+    str = NULL;
     char **tmp;
     int *nbr;
+    t_stack **stack_a;
+    t_stack **stack_b;
     int i = 1;
     if (ac == 1)
         return 0;
     while (i < ac)
     {
+        // printf("in time");
         str = get_str(str,av[i]);
         i++;
     }   
     i = 0;
     nbr = str_to_nbr(str);
-    int len = ac;
+    int len = double_len(str);
     if (check_double(nbr,len))
     {
         printf("erooooor double");
+        exit (1);
     }
-    
-    while (i < 5)
+    i = 0;
+    stack_a = stack_new(nbr,len);
+    set_final_mark(stack_a);
+    if (len <= 3)
+        sort_3(stack_a);
+    else if (len > 3)
     {
-        printf("%d\n",nbr[i]);
-        i++;
+        stack_b = malloc(sizeof(t_stack *));
+        sort_more(stack_a, stack_b);
     }
+    while (*stack_a)
+    {
+        printf("->%d",(*stack_a)->content);
+        (*stack_a) = (*stack_a)->next;
+    }
+    // printf("\nstack b \n");
+    // while (*stack_b)
+    // {
+    //     printf("->%d",(*stack_b)->content);
+    //     (*stack_b) = (*stack_b)->next;
+    // }
+    
 }
 
 // int main(int ac, char **av)

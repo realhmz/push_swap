@@ -20,12 +20,16 @@ void    ss(t_stack **a, t_stack **b)
 void    pb(t_stack **a, t_stack **b)
 {
     t_stack *tmp;
-    tmp = *a;
-    tmp = tmp->next;
-    ft_lstadd_front(b,*a);
-    *a = tmp;
-    write(1, "pb\n", 3);
+    if (*a && (*a)->next)
+    {
+        tmp = *a;
+        tmp = tmp->next;
+        ft_lstadd_front(b,*a);
+        *a = tmp;
+        write(1, "pb\n", 3);
+    }
 }
+
 void    pa(t_stack **a, t_stack **b)
 {
     t_stack *tmp;
@@ -115,59 +119,59 @@ void    rrr(t_stack **a,t_stack **b)
     write(1, "rrr\n", 4);
 }
 
-int main()
-{
-    t_stack *a;
-    t_stack *b;
-    t_stack *c;
-    t_stack *aa;
-    t_stack *bb;
-    t_stack *cc;
-    t_stack *d;
-    t_stack **stack_a;
-    t_stack **stack_b;
-    stack_a = malloc(sizeof(t_stack *));
-    stack_b = malloc(sizeof(t_stack *));
-    a  = ft_lstnew(1);
-    b = ft_lstnew(2);
-    c = ft_lstnew(3);
-    d = ft_lstnew(4);
+// int main()
+// {
+//     t_stack *a;
+//     t_stack *b;
+//     t_stack *c;
+//     t_stack *aa;
+//     t_stack *bb;
+//     t_stack *cc;
+//     t_stack *d;
+//     t_stack **stack_a;
+//     t_stack **stack_b;
+//     stack_a = malloc(sizeof(t_stack *));
+//     stack_b = malloc(sizeof(t_stack *));
+//     a  = ft_lstnew(1);
+//     b = ft_lstnew(2);
+//     c = ft_lstnew(3);
+//     d = ft_lstnew(4);
 
-    aa  = ft_lstnew(5);
-    bb = ft_lstnew(6);
-    cc = ft_lstnew(7);
+//     aa  = ft_lstnew(5);
+//     bb = ft_lstnew(6);
+//     cc = ft_lstnew(7);
 
-    a->next = b;
-    b->next  = c;
-    c->next = d;
-    d->next = NULL;
+//     a->next = b;
+//     b->next  = c;
+//     c->next = d;
+//     d->next = NULL;
 
-    aa->next = bb;
-    bb->next  = cc;
-    cc->next = NULL;
-    stack_a = &a;
-    stack_b = &aa;
+//     aa->next = bb;
+//     bb->next  = cc;
+//     cc->next = NULL;
+//     stack_a = &a;
+//     stack_b = &aa;
 
-    // sa(stack_a);
-    // sb(stack_b);
-    // pa(stack_a,stack_b);
-    // pb(stack_a,stack_b);
-    // rra(stack_a);
-    // rrb(stack_b);
-    rrr(stack_a,stack_b);
-    // rb(stack_b);
-    // rb(stack_b);
-    // rb(stack_b);
-    while (*stack_a)
-    {
-        printf("%d-> ",(*stack_a)->content);
-        (*stack_a) = (*stack_a)->next;
-    }
-    printf("\n");
-    while (*stack_b)
-    {
-        printf("%d-> ",(*stack_b)->content);
-        (*stack_b) = (*stack_b)->next;
-    }
+//     // sa(stack_a);
+//     // sb(stack_b);
+//     // pa(stack_a,stack_b);
+//     // pb(stack_a,stack_b);
+//     // rra(stack_a);
+//     // rrb(stack_b);
+//     rrr(stack_a,stack_b);
+//     // rb(stack_b);
+//     // rb(stack_b);
+//     // rb(stack_b);
+//     while (*stack_a)
+//     {
+//         printf("%d-> ",(*stack_a)->content);
+//         (*stack_a) = (*stack_a)->next;
+//     }
+//     printf("\n");
+//     while (*stack_b)
+//     {
+//         printf("%d-> ",(*stack_b)->content);
+//         (*stack_b) = (*stack_b)->next;
+//     }
     
-}
+// }

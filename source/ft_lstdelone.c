@@ -12,11 +12,10 @@
 
 #include "push_swap.h"
 
-void	ft_lstdelone(t_stack *lst, void (*del)(void *))
+void	ft_lstdelone(t_stack *lst)
 {
 	if (!lst)
 		return ;
-	del(lst->content);
 	free(lst);
 }
 

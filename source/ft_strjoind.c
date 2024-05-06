@@ -6,9 +6,8 @@ int double_len(char **str)
 
     i = 0;
     while (str && str[i])
-    {
         i++;
-    }
+    // printf("len %d\n", i);
     return i;
 }
 
