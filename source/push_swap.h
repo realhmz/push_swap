@@ -43,5 +43,6 @@ void    set_final_mark(t_stack **stack);
 void    sort_3(t_stack **stack);
 void    sort_more(t_stack **stack_a, t_stack **stack_b);
 void    set_index(t_stack **stack);
-
+int max_pos(t_stack **b, int j);
+void    send_back(t_stack **stack_a, t_stack **stack_b);
 

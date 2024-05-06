@@ -104,22 +104,22 @@ int main(int ac, char **av)
     set_index(stack_a);
     if (len <= 3)
         sort_3(stack_a);
-    // else if (len > 3)
-    // {
-    //     stack_b = malloc(sizeof(t_stack *));
-    //     sort_more(stack_a, stack_b);
-    // }
+    else if (len > 3)
+    {
+        stack_b = malloc(sizeof(t_stack *));
+        sort_more(stack_a, stack_b);
+    }
     while (*stack_a)
     {
         printf("->%d",(*stack_a)->content);
         (*stack_a) = (*stack_a)->next;
     }
     printf("\nstack b \n");
-    // while (*stack_b)
-    // {
-    //     printf("->%d",(*stack_b)->content);
-    //     (*stack_b) = (*stack_b)->next;
-    // }
+    while (*stack_b)
+    {
+        printf("->%d",(*stack_b)->final_rank);
+        (*stack_b) = (*stack_b)->next;
+    }
     
 }
 

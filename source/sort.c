@@ -94,7 +94,7 @@ void    push_next(t_stack **stack_a, t_stack **stack_b)
     int     i = 0;
 
     size = ft_lstsize(*stack_a);
-    while (i < size - 3)
+    while (i < size - 4)
     {
         if ((*stack_a)->final_rank > (size / 2))
             pb(stack_a,stack_b);
@@ -105,9 +105,85 @@ void    push_next(t_stack **stack_a, t_stack **stack_b)
 }
 void    sort_more(t_stack **stack_a, t_stack **stack_b)
 {
+    t_stack *head;
+    head = *stack_a;
+    int range;
+    range = 3;
+    int i = 0;
+    int size = ft_lstsize(*stack_a);
+    while (i < size)
+    {
+        if (head->index < ft_lstsize(*stack_b))
+        {
+            pb(stack_a, stack_b);
+            rb(stack_b);
+        }
+        else if (head->index <= ft_lstsize(*stack_b) + range)
+            pb(stack_a, stack_b);
+        else
+            ra(stack_a);
+        printf("\nstack b size ;%d\n", ft_lstsize(*stack_b));
+        head = *stack_a;
+        i++;
+    }
+    // sort_3(stack_a);
+    send_back(stack_a, stack_b);
+}
+void    send_back(t_stack **stack_a, t_stack **stack_b)
+{
+    int i = 0;
+    int max = max_pos(stack_b, 0);
+    t_stack *head;
+    head = *stack_b;
+    // printf("max pos %d\n",max_pos(stack_b));
+    while (head && ft_lstsize(*stack_b))
+    {
+        while (head->final_rank != max_pos(stack_b,i) - 1)
+        {
+            // printf("in");
+            if (head->final_rank == max_pos(stack_b, i))
+            {
+                if (max_pos(stack_b, i) > (max_pos(stack_b, i)) / 2)
+                {
+                    while (max_pos(stack_b, i))
+                        rrb(stack_b);
+                    pa(stack_a, stack_b);
+                    sa(stack_a);
+                    i++;
+                }
+                else
+                {
+                    while (max_pos(stack_b, i))
+                        rb(stack_b);
+                        pa(stack_a, stack_b);
+                    sa(stack_a);
+                    i++;
+                }
+            }
+            head = head->next;
+        }
+        head = *stack_b;
+    }
+    
     
 }
 
+int max_pos(t_stack **b, int j)
+{
+    int i = 0;
+    t_stack *head = *b;
+    int size = ft_lstsize(*b) + 1;
+    // printf("looking for %d\n",size);
+    while (head)
+    {
+        // printf("head->%d",head->index);
+        if (head->final_rank == size - j)
+            return i;
+        i++;
+        head = head->next;
+    }
+    return 0;
+}
 // void    half_push_b(t_stack *stack)
 // {
 //     int i;
