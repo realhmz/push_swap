@@ -20,14 +20,11 @@ void    ss(t_stack **a, t_stack **b)
 void    pb(t_stack **a, t_stack **b)
 {
     t_stack *tmp;
-    if (*a && (*a)->next)
-    {
-        tmp = *a;
-        tmp = tmp->next;
-        ft_lstadd_front(b,*a);
-        *a = tmp;
-        write(1, "pb\n", 3);
-    }
+    tmp = *a;
+    tmp = tmp->next;
+    ft_lstadd_front(b,*a);
+    *a = tmp;
+    write(1, "pb\n", 3);
 }
 
 void    pa(t_stack **a, t_stack **b)
@@ -158,7 +155,10 @@ void    rrr(t_stack **a,t_stack **b)
 //     // pb(stack_a,stack_b);
 //     // rra(stack_a);
 //     // rrb(stack_b);
-//     rrr(stack_a,stack_b);
+//     pb(stack_a,stack_b);
+//     pb(stack_a,stack_b);
+//     pb(stack_a,stack_b);
+//     pb(stack_a, stack_b);
 //     // rb(stack_b);
 //     // rb(stack_b);
 //     // rb(stack_b);

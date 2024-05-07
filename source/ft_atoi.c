@@ -36,8 +36,8 @@ size_t	ft_atoi(const char *nptr)
     atoi_checker(nptr, i);
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		while (nptr[i] == '0' && nptr[i + 1] == '0')
-			i++;
+		// while (nptr[i] == '0' && nptr[i + 1] == '0')
+		// 	i++;
 		result = result * 10 + nptr[i] - 48;
 		i++;
 		j++;

@@ -21,14 +21,11 @@ void	swap(t_stack *a)
 	tmp = malloc(sizeof(t_stack));
 	tmp->content = a->content;
 	tmp->final_rank = a->final_rank;
-	tmp->index = a->index;
 	a->content = a->next->content;
 	a->final_rank = a->next->final_rank;
-	a->index = a->index;
 	a->next->content = tmp->content;
 	a->next->content = tmp->content;
 	a->next->final_rank = tmp->final_rank;
-	a->next->index = tmp->index;
 	free(tmp);
 }
 
@@ -39,13 +36,10 @@ void	swap_last(t_stack *a)
 	tmp = malloc(sizeof(t_stack));
 	tmp->content = a->content;
 	tmp->final_rank = a->final_rank;
-	tmp->index = a->index;
 	a->content = ft_lstlast(&a)->content;
 	a->final_rank = ft_lstlast(&a)->final_rank;
-	a->index = a->index;	
 	ft_lstlast(&a)->content = tmp->content;
 	ft_lstlast(&a)->final_rank = tmp->final_rank;
-	ft_lstlast(&a)->index = tmp->index;
 	ft_lstlast(&a)->next = NULL;
 	free(tmp);
 }

@@ -22,18 +22,24 @@ char **ft_strdjoin(char **str, char**s)
     j = double_len(s);
     x = 0;
     dest = malloc(sizeof(char *) * (i + j + 1));
+    if (!dest)
+        return NULL;
     while (x < i)
     {
         dest[x] = ft_strdup(str[x]);
+        free(str[x]);
         x++;
     }
     t = 0;
     while (x < i + j)
     {
         dest[x] = ft_strdup(s[t]);
+        free(s[t]);
         x++;
         t++;
     }
     dest[i + j] = NULL;
+    // free(str);
+    // free(s);
     return (dest);
 }

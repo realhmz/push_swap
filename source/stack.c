@@ -21,7 +21,22 @@ t_stack **stack_new(int *nbr, int len)
     }
     return a;
 }
+void    clear_stack(t_stack **stack_a)
+{
+    t_stack *head;
+    t_stack *tmp;
 
+    ft_lstclear(stack_a);
+    free(stack_a);
+    // head = *stack_a;
+    // tmp = *stack_a;
+    // head = head->next;
+    // while (head)
+    // {
+    //     // free (tmp);
+    //     head = head->next;
+    // }
+}
 // int main()
 // {
 //     t_stack **stack;

@@ -17,11 +17,13 @@ void	ft_lstclear(t_stack **lst)
 	t_stack	*head;
 
 	head = *lst;
+	if (!lst)
+		return ;
 	while (head)
 	{
-		head = (*lst)->next;
+		*lst = head->next;
 		free(head);
-		 *lst = head;
+		head = *lst;
 	}
 	*lst = NULL;
 }

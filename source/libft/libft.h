@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 05:43:17 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/27 19:37:19 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:09:16 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);

@@ -23,17 +23,3 @@ void    set_final_mark(t_stack **stack)
         head = head->next;
     }
 }
-void    set_index(t_stack **stack)
-{
-    t_stack *tmp;
-    int     i;
-
-    i = 0;
-    tmp = *stack;
-    while (tmp)
-    {
-        tmp->index = i;;
-        i++;
-        tmp = tmp->next;
-    }
-}
