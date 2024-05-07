@@ -28,7 +28,6 @@ int is_sorted(t_stack **stack)
 
 int is_highest(t_stack *head, t_stack **stack_a)
 {
-	int i;
 	t_stack *tmp;
 	t_stack *tmp1;
 
@@ -40,7 +39,6 @@ int is_highest(t_stack *head, t_stack **stack_a)
 			return 0;
 		tmp1 = tmp1->next;
 	}
-	// (*stack_a) = tmp;
 	return 1;
 	
 }
@@ -84,7 +82,6 @@ void    sort_3(t_stack **stack)
 void	clear_str(char **str)
 {
 	int i = 0;
-	int j = 0;
 	while (str && str[i])
 	{
 		free(str[i]);
@@ -192,8 +189,6 @@ void    sort_more(t_stack **stack_a, t_stack **stack_b)
 	head = *stack_a;
 	int range;
 	range = ft_range(stack_a);
-	int i = 0;
-	int size = ft_lstsize(*stack_a);
 	// print_stack(*stack_a);
 	while (*stack_a)
 	{
@@ -231,14 +226,13 @@ void	print_stack(t_stack *stack)
 }
 void    send_back(t_stack **stack_a, t_stack **stack_b)
 {
-	int i = 0;
 	int max ;
 	t_stack *head;
 	head = *stack_b;
 	// printf("max pos %d\n",max_pos(stack_b));
 	while (*stack_b)
 	{
-		max = max_pos(stack_b, 0);
+		max = max_pos(stack_b);
 		// printf("max is %d \n",max);
 		// print_stack(*stack_b);
 		while (max)
@@ -268,7 +262,7 @@ void    send_back(t_stack **stack_a, t_stack **stack_b)
 	
 
 
-int max_pos(t_stack **b, int j)
+int max_pos(t_stack **b)
 {
 	int i = 0;
 	t_stack *head = *b;

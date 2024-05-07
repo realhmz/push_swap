@@ -39,7 +39,7 @@ char **ft_strdjoin(char **str, char**s)
         t++;
     }
     dest[i + j] = NULL;
-    // free(str);
+    free(str);
     // free(s);
     return (dest);
 }

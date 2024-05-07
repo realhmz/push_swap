@@ -16,9 +16,9 @@ static void    atoi_checker(const char *str, int i)
 size_t	ft_atoi(const char *nptr)
 {
 	size_t	i;
-	size_t	sign;
-	size_t	result;
-	int j;
+	long long	sign;
+	long long	result;
+	size_t j;
 
 	j = 0;
 	i = 0;
