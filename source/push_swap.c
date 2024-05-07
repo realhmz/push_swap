@@ -34,6 +34,8 @@ int main(int ac, char **av)
         if (!is_sorted(stack_a))
             return 0;
         stack_b = malloc(sizeof(t_stack *));
+        if (!stack_b)
+            return (0);
         if (len == 4)
             sort_4(stack_a, stack_b);
         else if (len == 5)
