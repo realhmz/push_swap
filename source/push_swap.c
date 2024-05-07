@@ -40,6 +40,7 @@ int main(int ac, char **av)
             sort_5(stack_a, stack_b);
         else
             sort_more(stack_a, stack_b);
+        free(stack_b);
     }
     free(nbr);
     clear_str(str);

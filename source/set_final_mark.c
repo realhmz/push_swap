@@ -12,6 +12,12 @@ void    set_final_mark(t_stack **stack)
     tmp = head;
     while (head)
     {
+        head->final_rank = 0;
+        head = head->next;
+    }
+    head = tmp;
+    while (head)
+    {
         head->final_rank++;
         while (tmp)
         {
