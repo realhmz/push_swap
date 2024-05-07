@@ -16,7 +16,7 @@ int check_double(int *nbr, int len)
                 x++;
             if (x > 1)
             {
-                printf("%d",nbr[d]);
+                // printf("%d",nbr[d]);
                 return (1);
             }
             d++;

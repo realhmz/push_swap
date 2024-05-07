@@ -20,10 +20,15 @@ int main(int ac, char **av)
     int len = double_len(str);
     if (check_double(nbr,len))
     {
-        printf("erooooor double");
+        write(2, "Error\n", 6);
         exit (1);
     }
     i = 0;
+    if (!str || len == 0)
+    {
+        printf("Error\n");
+        return (0);
+    }
     stack_a = stack_new(nbr,len);
     set_final_mark(stack_a);
     if (len <= 3)
@@ -34,6 +39,7 @@ int main(int ac, char **av)
         if (!is_sorted(stack_a))
             return 0;
         stack_b = malloc(sizeof(t_stack *));
+        (*stack_b) = NULL;
         if (!stack_b)
             return (0);
         if (len == 4)

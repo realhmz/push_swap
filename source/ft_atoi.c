@@ -6,7 +6,7 @@ static void    atoi_checker(const char *str, int i)
     {
         if (!ft_isdigit(str[i]))
         {
-            write(1, "atoi_checker error\n", 19);
+            write(2, "Error\n", 6);
             exit (1);
         }
         i++;
@@ -43,7 +43,7 @@ size_t	ft_atoi(const char *nptr)
 		j++;
         if (j >= 11)
         {
-            write(1, "atoi error\n", 11);
+            write(2, "Error\n", 6);
             exit (1);
         }
 	}

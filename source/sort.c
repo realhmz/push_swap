@@ -42,6 +42,7 @@ void	sort_4(t_stack **stack,t_stack **stack_b)
 	t_stack *head;
 
 	head = *stack;
+	
 	while (*stack)
 	{
 		if (is_lowest(head, stack))
@@ -57,8 +58,13 @@ void	sort_4(t_stack **stack,t_stack **stack_b)
 void	sort_5(t_stack **stack,t_stack **stack_b)
 {
 	t_stack *head;
+	int		flag;
 
-	head = *stack;
+	head = *stack;	
+	if (max_pos(stack) < 2)
+		flag = 1;
+	else
+		flag = 0;
 	while (*stack)
 	{
 		if (is_lowest(head, stack))
@@ -66,7 +72,10 @@ void	sort_5(t_stack **stack,t_stack **stack_b)
 			pb(stack, stack_b);
 			break;
 		}
-		ra(stack);
+		if (flag)
+			rra(stack);
+		else
+			ra(stack);
 	}
 	sort_4(stack,stack_b);
 	pa(stack, stack_b);
@@ -80,6 +89,7 @@ void    sort_more(t_stack **stack_a, t_stack **stack_b)
 	int range;
 	range = ft_range(stack_a);
 	// print_stack(*stack_a);
+	// ft_lstsize(*stack_b);
 	while (*stack_a)
 	{
 		if (head->final_rank < ft_lstsize(*stack_b))

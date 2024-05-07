@@ -16,11 +16,10 @@ int	ft_lstsize(t_stack *lst)
 {
 	int		i;
 	t_stack	*head;
-
-	i = 0;
-	if (!lst)
-		return 0;
 	head = lst;
+	// if (!head)
+	// 	return (0);
+	i = 0;
 	while (head)
 	{
 		head = head->next;
