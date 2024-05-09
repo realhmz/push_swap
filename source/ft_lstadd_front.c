@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: het-taja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 14:16:28 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/12 14:16:29 by het-taja         ###   ########.fr       */
+/*   Created: 2024/05/09 11:39:30 by het-taja          #+#    #+#             */
+/*   Updated: 2024/05/09 12:53:03 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	swap(t_stack *a)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (ft_lstsize(a) <= 1)
-		return;
+		return ;
 	tmp = malloc(sizeof(t_stack));
 	tmp->content = a->content;
 	tmp->final_rank = a->final_rank;
@@ -31,7 +31,7 @@ void	swap(t_stack *a)
 
 void	swap_last(t_stack *a)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = malloc(sizeof(t_stack));
 	tmp->content = a->content;
@@ -43,6 +43,7 @@ void	swap_last(t_stack *a)
 	ft_lstlast(&a)->next = NULL;
 	free(tmp);
 }
+
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	new->next = *lst;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/09 11:41:10 by het-taja          #+#    #+#             */
+/*   Updated: 2024/05/09 12:54:22 by het-taja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -33,6 +45,7 @@ int		*str_to_nbr(char **str);
 int		*str_to_nbr(char **str);
 int		nbr_len(int l);
 int		double_len(char **str);
+int		error();
 // Linked List Functions
 t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack **lst);
