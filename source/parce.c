@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:45 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:40:59 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:35:41 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	check_double(int *nbr, int len)
 	}
 	return (0);
 }
+
 int	nbr_len(int l)
 {
 	static int	i;
@@ -49,6 +50,7 @@ int	nbr_len(int l)
 		i = l;
 	return (i);
 }
+
 int	*str_to_nbr(char **str)
 {
 	int	i;

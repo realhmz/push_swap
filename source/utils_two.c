@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:35 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:41:39 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:00:42 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	ft_range(t_stack **stack)
 	else
 		return (45);
 }
+
 void	maxifixi(int max, t_stack **stack_b)
 {
 	while (max)
@@ -70,10 +71,12 @@ void	maxifixi(int max, t_stack **stack_b)
 			max = 0;
 		}
 		else
+		{
 			while (max > 0)
 			{
 				rb(stack_b);
 				max--;
 			}
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 05:43:17 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/07 15:09:16 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:55:44 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void				*ft_memrchr(const void *s, int c, size_t n);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strdup(const char *s);
 char				*ft_strchr(const char *s, int c);
-char				*ft_strjoin(char const *s1, char const *s2);
+// char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strnstr(const char *big, const char *little,

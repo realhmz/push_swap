@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:11 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 12:35:43 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:40:41 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,3 @@ size_t	ft_atoi(const char *nptr)
 	}
 	return (half_atoi(nptr, i, flag, result, sign, j));
 }
-
-// int main(int ac, char **av)
-// {
-// 	int i = 0;
-// 	i = ft_atoi(av[1]);
-// 	printf("%d\n",i);
-// }

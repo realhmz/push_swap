@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:21 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:40:32 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:38:24 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ int	double_len(char **str)
 	i = 0;
 	while (str && str[i])
 		i++;
-	// printf("len %d\n", i);
 	return (i);
 }
 
 char	**ft_strdjoin(char **str, char **s)
 {
-	int i;
-	int j;
-	int t;
-	int x;
-	char **dest;
+	int		i;
+	int		j;
+	int		t;
+	int		x;
+	char	**dest;
+
 	i = double_len(str);
 	j = double_len(s);
 	x = 0;
@@ -53,4 +53,23 @@ char	**ft_strdjoin(char **str, char **s)
 	dest[i + j] = NULL;
 	free(str);
 	return (dest);
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+
+	tmp = *b;
+	while (tmp)
+	{
+		swap_last(tmp);
+		tmp = tmp->next;
+	}
+	tmp = *a;
+	while (tmp)
+	{
+		swap_last(tmp);
+		tmp = tmp->next;
+	}
+	write(1, "rrr\n", 4);
 }

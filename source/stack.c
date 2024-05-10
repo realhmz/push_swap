@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:32 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 12:12:05 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:36:06 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_stack	**stack_new(int *nbr, int len)
 	return (a);
 }
 
-int error(void)
+int	error(void)
 {
 	write(2, "Error\n", 6);
 	exit (1);

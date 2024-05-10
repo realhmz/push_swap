@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:22 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:41:27 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:36:18 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	sort_4(t_stack **stack, t_stack **stack_b)
 	sort_3(stack);
 	pa(stack, stack_b);
 }
+
 void	sort_5(t_stack **stack, t_stack **stack_b)
 {
 	t_stack	*head;
