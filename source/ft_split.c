@@ -6,11 +6,11 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 22:41:17 by het-taja          #+#    #+#             */
-/*   Updated: 2023/11/28 00:33:06 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/11 13:36:36 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static	int	wrds_count(const char *str, char sep)
 {

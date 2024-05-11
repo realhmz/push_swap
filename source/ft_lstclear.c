@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:36 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:39:41 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/11 12:18:33 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,3 @@ void	ft_lstclear(t_stack **lst)
 	}
 	*lst = NULL;
 }
-
-// void	del(void *content)
-// {
-// 	// printf("hadchi li mktoub: %s\n", content);
-// 	free(content);
-// }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	t_stack *finalnode = ft_lstnew(ft_strdup("TARZAN"));
-// 	t_stack *secondnode = ft_lstnew(ft_strdup("there"));
-// 	t_stack *firstnode = ft_lstnew(ft_strdup("hello"));
-// 	t_stack *head;
-// 	t_stack **lst;
-
-// 	firstnode->next = secondnode;
-// 	secondnode->next = finalnode;
-
-// 	head = finalnode;
-// 	lst = &head;
-
-// 	// printf("%s\n", firstnode->content);
-// 	// printf("%s\n", secondnode->content);
-// 	// printf("%s\n", finalnode->content);
-// 	ft_lstclear(lst, del);
-// }

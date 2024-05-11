@@ -6,14 +6,13 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:10 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 14:49:17 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/11 14:00:15 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "./libft/libft.h"
 
 typedef struct s_stack
 {
@@ -46,6 +45,11 @@ int		*str_to_nbr(char **str);
 int		nbr_len(int l);
 int		double_len(char **str);
 int		error(void);
+int		ft_isdigit(int c);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s);
+char	**ft_split(char const *s, char c);
 // Linked List Functions
 t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack **lst);
