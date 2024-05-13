@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:11 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 14:40:41 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:19:02 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	atoi_checker(const char *str, int i)
 }
 
 int	half_atoi(const char *nptr, int i, int flag, long long result,
-		long long sign, int j)
+		long long sign)
 {
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
@@ -34,7 +34,6 @@ int	half_atoi(const char *nptr, int i, int flag, long long result,
 		}
 		result = result * 10 + nptr[i] - 48;
 		i++;
-		j++;
 		if ((sign == 1 && result > 2147483647) || (sign == -1
 				&& result > 2147483648))
 			exit(error());
@@ -76,5 +75,5 @@ size_t	ft_atoi(const char *nptr)
 		i++;
 		flag = 1;
 	}
-	return (half_atoi(nptr, i, flag, result, sign, j));
+	return (half_atoi(nptr, i, flag, result, sign));
 }

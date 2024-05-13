@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:21 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 14:38:24 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:15:46 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,25 @@ int	double_len(char **str)
 	return (i);
 }
 
+char	**ft_join(char **dest, char **s, int x, int max)
+{
+	int	i;
+
+	i = 0;
+	while (x < max)
+	{
+		dest[x] = ft_strdup(s[i]);
+		free(s[i]);
+		x++;
+		i++;
+	}
+	return (dest);
+}
+
 char	**ft_strdjoin(char **str, char **s)
 {
 	int		i;
 	int		j;
-	int		t;
 	int		x;
 	char	**dest;
 
@@ -42,14 +56,7 @@ char	**ft_strdjoin(char **str, char **s)
 		free(str[x]);
 		x++;
 	}
-	t = 0;
-	while (x < i + j)
-	{
-		dest[x] = ft_strdup(s[t]);
-		free(s[t]);
-		x++;
-		t++;
-	}
+	dest = ft_join(dest, s, x, (i + j));
 	dest[i + j] = NULL;
 	free(str);
 	return (dest);
