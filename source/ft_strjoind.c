@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:21 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/13 12:15:46 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:15:24 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	**ft_join(char **dest, char **s, int x, int max)
 	{
 		dest[x] = ft_strdup(s[i]);
 		free(s[i]);
+		s[i] = NULL;
 		x++;
 		i++;
 	}

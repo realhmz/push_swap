@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:04 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/13 12:08:26 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:30:51 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	sort_after(t_stack **stack_a, t_stack **stack_b, char **str)
 	if (i > 3)
 	{
 		if (!is_sorted(stack_a))
-			exit (1);
+			return ;
 		stack_b = malloc(sizeof(t_stack *));
 		(*stack_b) = NULL;
 		if (!stack_b)
-			exit (1);
+			return ;
 		if (i == 4)
 			sort_4(stack_a, stack_b);
 		else if (i == 5)
@@ -33,6 +33,14 @@ void	sort_after(t_stack **stack_a, t_stack **stack_b, char **str)
 			sort_more(stack_a, stack_b);
 		free(stack_b);
 	}
+}
+
+void	clean(int *nbr, char **str, t_stack **stack_a)
+{
+	free(nbr);
+	clear_str(str);
+	ft_lstclear(stack_a);
+	free(stack_a);
 }
 
 int	main(int ac, char **av)
@@ -45,6 +53,7 @@ int	main(int ac, char **av)
 
 	i = 0;
 	str = NULL;
+	stack_b = NULL;
 	if (ac <= 1)
 		exit(error());
 	while (++i < ac)
@@ -58,8 +67,5 @@ int	main(int ac, char **av)
 	if (i <= 3)
 		sort_3(stack_a);
 	sort_after(stack_a, stack_b, str);
-	free(nbr);
-	clear_str(str);
-	ft_lstclear(stack_a);
-	free(stack_a);
+	clean(nbr, str, stack_a);
 }

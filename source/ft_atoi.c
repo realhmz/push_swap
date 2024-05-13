@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:11 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/13 12:19:02 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:26:47 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ static void	atoi_checker(const char *str, int i)
 	}
 }
 
-int	half_atoi(const char *nptr, int i, int flag, long long result,
+int	half_atoi(const char *nptr, int i, long long result,
 		long long sign)
 {
+	if (nptr[i] == 0)
+		i--;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		if (flag == 1)
-		{
-			i--;
-			flag = 90;
-		}
 		result = result * 10 + nptr[i] - 48;
 		i++;
 		if ((sign == 1 && result > 2147483647) || (sign == -1
@@ -52,11 +49,7 @@ size_t	ft_atoi(const char *nptr)
 	size_t		i;
 	long long	sign;
 	long long	result;
-	size_t		j;
-	int			flag;
 
-	j = 0;
-	flag = 0;
 	i = 0;
 	sign = 1;
 	result = 0;
@@ -71,9 +64,6 @@ size_t	ft_atoi(const char *nptr)
 	}
 	atoi_checker(nptr, i);
 	while (nptr[i] == '0' && nptr[i + 1] == '0')
-	{
 		i++;
-		flag = 1;
-	}
-	return (half_atoi(nptr, i, flag, result, sign));
+	return (half_atoi(nptr, i, result, sign));
 }

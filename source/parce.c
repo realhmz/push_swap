@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:45 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 14:35:41 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:25:55 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	*str_to_nbr(char **str)
 	int	*nbr;
 
 	i = double_len(str);
+	if (i <= 0)
+		exit(error());
 	j = 0;
 	nbr = (int *)malloc(sizeof(int) * i);
 	while (j < i)
@@ -77,6 +79,11 @@ char	**get_str(char **s1, char *s2)
 
 	tmp = s1;
 	tmp1 = ft_split(s2, ' ');
+	if (!tmp1 || !tmp1[0])
+	{
+		free (tmp1);
+		exit(error());
+	}
 	str = ft_strdjoin(tmp, tmp1);
 	free(tmp1);
 	return (str);
