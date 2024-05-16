@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:21 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/13 13:15:24 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:12:58 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char	**ft_strdjoin(char **str, char **s)
 	dest = ft_join(dest, s, x, (i + j));
 	dest[i + j] = NULL;
 	free(str);
+	str = NULL;
 	return (dest);
 }
 

@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:42 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 14:37:07 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:38:05 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	is_sorted(t_stack **stack)
 	return (0);
 }
 
-int	is_highest(t_stack *head, t_stack **stack_a)
+int	is_highest(t_stack *head, t_stack **a)
 {
 	t_stack	*tmp;
 	t_stack	*tmp1;
 
-	tmp1 = *stack_a;
+	tmp1 = *a;
 	tmp = head;
 	while (tmp1)
 	{
@@ -42,11 +42,11 @@ int	is_highest(t_stack *head, t_stack **stack_a)
 	return (1);
 }
 
-int	is_lowest(t_stack *head, t_stack **stack_a)
+int	is_lowest(t_stack *head, t_stack **a)
 {
 	t_stack	*tmp1;
 
-	tmp1 = *stack_a;
+	tmp1 = *a;
 	while (tmp1)
 	{
 		if (head->final_rank <= tmp1->final_rank)

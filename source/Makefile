@@ -36,8 +36,8 @@ $(NAME) : $(OBJ)
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
 
-fclean :
-	rm -rf $(OBJ)
+fclean : clean
+	rm -rf $(OBJ) 
 clean :
 	rm -rf $(NAME)
 re : fclean all

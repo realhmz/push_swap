@@ -6,23 +6,26 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:11 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/13 12:26:47 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:38:12 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	atoi_checker(const char *str, int i)
+long long	atoi_checker(const char *str, int i)
 {
 	while (str && str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			exit(error());
+		{
+			return (1);
+		}
 		i++;
 	}
+	return (0);
 }
 
-int	half_atoi(const char *nptr, int i, long long result,
+long	half_atoi(const char *nptr, int i, long long result,
 		long long sign)
 {
 	if (nptr[i] == 0)
@@ -33,18 +36,18 @@ int	half_atoi(const char *nptr, int i, long long result,
 		i++;
 		if ((sign == 1 && result > 2147483647) || (sign == -1
 				&& result > 2147483648))
-			exit(error());
+			return (2147483649);
 	}
 	if (result == 0)
 	{
 		i = 1;
 		if (ft_strlen(nptr) == 1 && nptr[0] != '0')
-			exit(error());
+			return (2147483649);
 	}
 	return (sign * result);
 }
 
-size_t	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	size_t		i;
 	long long	sign;
@@ -62,7 +65,8 @@ size_t	ft_atoi(const char *nptr)
 			sign *= -1;
 		i++;
 	}
-	atoi_checker(nptr, i);
+	if (atoi_checker(nptr, i))
+		return (2147483649);
 	while (nptr[i] == '0' && nptr[i + 1] == '0')
 		i++;
 	return (half_atoi(nptr, i, result, sign));

@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:45 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/13 13:25:55 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:28:52 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,27 @@ int	nbr_len(int l)
 
 int	*str_to_nbr(char **str)
 {
-	int	i;
-	int	j;
-	int	*nbr;
+	int		i;
+	int		j;
+	int		*nbr;
+	long	tmp;
 
 	i = double_len(str);
-	if (i <= 0)
-		exit(error());
+	tmp = 0;
 	j = 0;
+	if (i <= 0)
+	{
+		nbr = malloc(16);
+		clean_double(nbr, str);
+		exit(error());
+	}
 	nbr = (int *)malloc(sizeof(int) * i);
 	while (j < i)
 	{
-		nbr[j] = ft_atoi(str[j]);
+		tmp = ft_atoi(str[j]);
+		nbr[j] = tmp;
+		if (tmp > 2147483647)
+			clean_double(nbr, str);
 		j++;
 	}
 	nbr_len(j);
@@ -80,11 +89,9 @@ char	**get_str(char **s1, char *s2)
 	tmp = s1;
 	tmp1 = ft_split(s2, ' ');
 	if (!tmp1 || !tmp1[0])
-	{
-		free (tmp1);
-		exit(error());
-	}
+		tmp1[0] = ft_strdup("1error");
 	str = ft_strdjoin(tmp, tmp1);
 	free(tmp1);
+	tmp1 = NULL;
 	return (str);
 }

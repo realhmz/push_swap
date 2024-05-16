@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:35 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 12:00:42 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:38:15 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ int	max_pos(t_stack **b)
 	return (-1);
 }
 
-void	send_back(t_stack **stack_a, t_stack **stack_b)
+void	send_back(t_stack **a, t_stack **b)
 {
 	int		max;
 	t_stack	*head;
 
-	head = *stack_b;
-	while (*stack_b)
+	head = *b;
+	while (*b)
 	{
-		max = max_pos(stack_b);
-		maxifixi(max, stack_b);
-		pa(stack_a, stack_b);
+		max = max_pos(b);
+		maxifixi(max, b);
+		pa(a, b);
 	}
 }
 
@@ -50,22 +50,22 @@ int	ft_range(t_stack **stack)
 	if (ft_lstsize(*stack) <= 15)
 		return (2);
 	if (ft_lstsize(*stack) <= 150)
-		return (13);
+		return (15);
 	if (ft_lstsize(*stack) <= 500)
 		return (33);
 	else
 		return (45);
 }
 
-void	maxifixi(int max, t_stack **stack_b)
+void	maxifixi(int max, t_stack **b)
 {
 	while (max)
 	{
-		if (max > ft_lstsize(*stack_b) / 2)
+		if (max > ft_lstsize(*b) / 2)
 		{
-			while (max != ft_lstsize(*stack_b))
+			while (max != ft_lstsize(*b))
 			{
-				rrb(stack_b);
+				rrb(b);
 				max++;
 			}
 			max = 0;
@@ -74,7 +74,7 @@ void	maxifixi(int max, t_stack **stack_b)
 		{
 			while (max > 0)
 			{
-				rb(stack_b);
+				rb(b);
 				max--;
 			}
 		}

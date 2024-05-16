@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:22 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/10 14:36:18 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:38:15 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,24 @@ void	sort_3(t_stack **stack)
 	}
 }
 
-void	push_next(t_stack **stack_a, t_stack **stack_b)
+void	push_next(t_stack **a, t_stack **b)
 {
 	int	size;
 	int	i;
 
 	i = 0;
-	size = ft_lstsize(*stack_a);
+	size = ft_lstsize(*a);
 	while (i < size - 4)
 	{
-		if ((*stack_a)->final_rank > (size / 2))
-			pb(stack_a, stack_b);
+		if ((*a)->final_rank > (size / 2))
+			pb(a, b);
 		else
-			ra(stack_a);
+			ra(a);
 		i++;
 	}
 }
 
-void	sort_4(t_stack **stack, t_stack **stack_b)
+void	sort_4(t_stack **stack, t_stack **b)
 {
 	t_stack	*head;
 
@@ -60,16 +60,16 @@ void	sort_4(t_stack **stack, t_stack **stack_b)
 	{
 		if (is_lowest(head, stack))
 		{
-			pb(stack, stack_b);
+			pb(stack, b);
 			break ;
 		}
 		ra(stack);
 	}
 	sort_3(stack);
-	pa(stack, stack_b);
+	pa(stack, b);
 }
 
-void	sort_5(t_stack **stack, t_stack **stack_b)
+void	sort_5(t_stack **stack, t_stack **b)
 {
 	t_stack	*head;
 	int		flag;
@@ -83,7 +83,7 @@ void	sort_5(t_stack **stack, t_stack **stack_b)
 	{
 		if (is_lowest(head, stack))
 		{
-			pb(stack, stack_b);
+			pb(stack, b);
 			break ;
 		}
 		if (flag)
@@ -91,31 +91,31 @@ void	sort_5(t_stack **stack, t_stack **stack_b)
 		else
 			ra(stack);
 	}
-	sort_4(stack, stack_b);
-	pa(stack, stack_b);
+	sort_4(stack, b);
+	pa(stack, b);
 }
 
-void	sort_more(t_stack **stack_a, t_stack **stack_b)
+void	sort_more(t_stack **a, t_stack **b)
 {
 	t_stack	*head;
 	int		range;
 
-	head = *stack_a;
-	range = ft_range(stack_a);
-	while (*stack_a)
+	head = *a;
+	range = ft_range(a);
+	while (*a)
 	{
-		if (head->final_rank < ft_lstsize(*stack_b))
+		if (head->final_rank < ft_lstsize(*b))
 		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
+			pb(a, b);
+			rb(b);
 		}
-		else if (head->final_rank <= ft_lstsize(*stack_b) + range)
-			pb(stack_a, stack_b);
+		else if (head->final_rank <= ft_lstsize(*b) + range)
+			pb(a, b);
 		else
-			ra(stack_a);
-		head = *stack_a;
+			ra(a);
+		head = *a;
 	}
-	reset_final_rank(stack_b);
-	set_final_mark(stack_b);
-	send_back(stack_a, stack_b);
+	reset_final_rank(b);
+	set_final_mark(b);
+	send_back(a, b);
 }
