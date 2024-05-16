@@ -6,13 +6,12 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:14 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:41:15 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:15:48 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// find the ibigest and give it max mark
 void	set_final_mark(t_stack **stack)
 {
 	t_stack	*head;

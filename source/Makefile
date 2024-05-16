@@ -28,8 +28,6 @@ SRC = 		push_swap.c \
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
-	
-
 
 $(NAME) : $(OBJ)
 

@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:30 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 12:53:03 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:15:09 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,3 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 	new->next = *lst;
 	*lst = new;
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	t_stack *a;
-// 	t_stack *b;
-// 	a = ft_lstnew(500);
-// 	b = ft_lstnew(600);
-// 	a->final_rank = 1;
-// 	b->final_rank = 2;
-// 	a->next = b;
-// 	b->next = NULL;
-// 	ft_lstadd_front(a);
-// 	while (a)
-// 	{
-// 		printf("a :->%d,final_rank : %d\n",a->content,a->final_rank);
-// 		a = a->next;
-// 	}
-// }

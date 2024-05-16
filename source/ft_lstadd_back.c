@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:39:19 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/09 11:39:27 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:15:28 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,3 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		}
 	}
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-//     t_stack *a;
-//     t_stack *b;
-//     t_stack  *head;
-
-//     b = ft_lstnew("world");
-//     a = ft_lstnew("hello ");
-//     head = a;
-//     ft_lstadd_back(&head,b);
-//     while (head)
-//     {
-//         ft_putstr_fd(head->content,1);
-//         head = head->next;
-//     }
-// }
