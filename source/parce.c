@@ -6,7 +6,7 @@
 /*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:40:45 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/16 11:28:52 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/05/18 14:25:59 by het-taja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,12 @@ char	**get_str(char **s1, char *s2)
 	tmp = s1;
 	tmp1 = ft_split(s2, ' ');
 	if (!tmp1 || !tmp1[0])
+	{
+		free(tmp1);
+		tmp1 = malloc(sizeof(char *) * 2);
 		tmp1[0] = ft_strdup("1error");
+		tmp1[1] = NULL;
+	}
 	str = ft_strdjoin(tmp, tmp1);
 	free(tmp1);
 	tmp1 = NULL;
