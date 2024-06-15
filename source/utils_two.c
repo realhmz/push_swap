@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_two.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: het-taja <het-taja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: realhmz <realhmz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:41:35 by het-taja          #+#    #+#             */
-/*   Updated: 2024/05/16 11:38:15 by het-taja         ###   ########.fr       */
+/*   Updated: 2024/06/15 20:31:31 by realhmz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int	max_pos(t_stack **b)
 void	send_back(t_stack **a, t_stack **b)
 {
 	int		max;
-	t_stack	*head;
 
-	head = *b;
 	while (*b)
 	{
 		max = max_pos(b);
